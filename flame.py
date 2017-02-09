@@ -29,19 +29,12 @@ def get_match_name():
         else:
             return match_name
 
-def get_player_list(name):
+def get_list(str):
    """
-   converts player_name to a list
+   converts a string to a list
    """
-   player_list = list(name)
-   return player_list
-
-def get_match_list(match_name):
-    """
-    convert match_name to list
-    """
-    match_list = list(match_name)
-    return match_list
+   some_list = list(str)
+   return some_list
 
 def get_non_duplicate_list(player_list, match_list):
     """
@@ -87,8 +80,8 @@ def print_results(compatability):
 def main():
     name = get_player_name()
     match_name = get_match_name()
-    player_list = get_player_list(name)
-    match_list = get_match_list(match_name)
+    player_list = get_list(name)
+    match_list = get_list(match_name)
     no_duplicates = get_non_duplicate_list(player_list, match_list)
     total_chr = total_remaining_chr(no_duplicates)
     compatability = get_compatability(total_chr)
