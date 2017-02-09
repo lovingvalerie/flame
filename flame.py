@@ -71,7 +71,7 @@ def total_remaining_chr(non_duplicates):
 
 def get_compatability(total_chr):
     """
-    returns list elementi of a list
+    returns list element via index
     """
     flame = ['Friends', 'Lovers', 'Affection', 'Marriage', 'Enemies'] * 5
     compatability = flame[total_chr -1]
