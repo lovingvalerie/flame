@@ -46,7 +46,7 @@ def get_match_list(match_name):
 def get_non_duplicate_list(player_list, match_list):
     """
     removes common chr between two list
-    concatanatest them and returns a list of non duplicate chr
+    conccantonates them and returns a list of non duplicate chr
     """
     match_listcp = match_list[:]
     for chr in player_list:
