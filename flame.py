@@ -1,33 +1,18 @@
 #write a Flame program!
 #take in two names to 'predict' romantic compatability
 
-def get_player_name():
+def get_name(promt):
     """
     Prompts user for valid username as a string
     returns the string after checking it is valid
     """
     while True:
-        player_name = raw_input("Your name please? :")
-        player_name = player_name.lower().strip(' ')
-        if not player_name.isalpha():
+        name = promt
+        name = name.lower().strip(' ')
+        if not name.isalpha():
             print "Invalid name, please try again."
         else:
-            return player_name
-
-def get_match_name():
-    """
-    promts user for valid username as a string
-    returns the string after checking it is valid
-    """
-    while True:
-        match_name = raw_input(
-            "Your crush's name? :"
-        )
-        match_name = match_name.lower().strip(' ')
-        if not match_name.isalpha():
-            print "Invalid name, please try again."
-        else:
-            return match_name
+            return name
 
 def get_list(str):
    """
@@ -78,8 +63,10 @@ def print_results(compatability):
     print "You both are most compatible as " + compatability
 
 def main():
-    name = get_player_name()
-    match_name = get_match_name()
+    user_promt = raw_input("Your name please? :")
+    match_promt = raw_input("Your crush's name? :")
+    name = get_name(user_promt)
+    match_name = get_name(match_promt)
     player_list = get_list(name)
     match_list = get_list(match_name)
     no_duplicates = get_non_duplicate_list(player_list, match_list)
