@@ -3,6 +3,10 @@
 
 #prompts user for thier name
 def get_player_name():
+    """
+    Prompts user for valid username as a string
+    returns the string after checking it is valid
+    """
     while True:
         player_name = raw_input("Your name please? :")
         player_name = player_name.lower().strip(' ')
@@ -13,6 +17,10 @@ def get_player_name():
 
 #promts user for thier crush's name
 def get_match_name():
+    """
+    promts user for valid username as a string
+    returns the string after checking it is valid
+    """
     while True:
         match_name = raw_input(
             "Your crush's name?, don't worry I'll never tell. :"
@@ -23,19 +31,18 @@ def get_match_name():
         else:
             return match_name
 
-#converts a string to a list
-def convert_to_list(str):
-    str_as_list = list(str)
-    return str_as_list
-
-#convert_to_list to convert player_name to a list called player_list
 def get_player_list(player_name):
-    player_list = convert_to_list(player_name)
-    return player_list
+   """
+   converts player_name to a list
+   """
+   player_list = list(player_name)
+   return player_list
 
-#convert_to_list to convert match_name to a list called match_list
 def get_match_list(match_name):
-    match_list = convert_to_list(match_name)
+    """
+    convert match_name to list
+    """
+    match_list = list(match_name)
     return match_list
 
 #combines both lists to get a list containing combined_characters
@@ -55,21 +62,14 @@ def total_remaining_chr(some_list):
     return total_chr
 
 def get_compatability_rating(total_chr):
-    flame = list('flame') * 5
+    flame = ['Friends', 'Lovers', 'Affection', 'Marriage', 'Enemies'] * 5
     compatability_rating =  flame[total_chr]
     return compatability_rating
-
-#print get_compatability(7)
-
-def compatability(compatability_rating):
-    flame_dict = {'f' : 'friends', 'l' : 'lovers', 'a' : 'affection', 'm' : 'marriage', 'e' : 'enemies'}
-    result = flame_dict[compatability_rating]
-    return result
 
 def print_results(compatability):
     print "You both are most compatible as " + compatability
 
-print_results(compatability(get_compatability_rating(total_remaining_chr(remove_duplicates(get_combined_characters(get_player_list(get_player_name()), get_match_list(get_match_name())))))))
+#print_results(compatability(get_compatability_rating(total_remaining_chr(remove_duplicates(get_combined_characters(get_player_list(get_player_name()), get_match_list(get_match_name())))))))
 
 
 
