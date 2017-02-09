@@ -52,13 +52,13 @@ def get_non_duplicate_list(player_list, match_list):
     for chr in player_list:
         if chr in match_list:
             match_list.remove(chr)
-            print match_list
+            #print match_list
     for chr in match_listcp:
         if chr in player_list:
             player_list.remove(chr)
-            print player_list
+            #print player_list
     non_duplicates = player_list + match_list
-    print non_duplicates
+    #print non_duplicates
     return non_duplicates
 
 def total_remaining_chr(non_duplicates):
@@ -66,7 +66,7 @@ def total_remaining_chr(non_duplicates):
     returns len of a list
     """
     total_chr = len(non_duplicates)
-    print total_chr
+    #print total_chr
     return total_chr
 
 def get_compatability(total_chr):
@@ -75,7 +75,7 @@ def get_compatability(total_chr):
     """
     flame = ['Friends', 'Lovers', 'Affection', 'Marriage', 'Enemies'] * 5
     compatability = flame[total_chr -1]
-    print compatability
+    #print compatability
     return compatability
 
 def print_results(compatability):
