@@ -3,7 +3,7 @@
 
 def get_name(promt):
     """
-    Prompts user for valid username as a string
+    Prompts user for valid name as a string
     returns the string after checking it is valid
     """
     while True:
