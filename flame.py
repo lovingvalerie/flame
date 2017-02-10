@@ -1,6 +1,9 @@
 #write a Flame program!
 #take in two names to 'predict' romantic compatability
 
+from prompt import user_promt
+from prompt import match_promt
+
 def get_name(promt):
     """
     Prompts user for valid name as a string
@@ -63,8 +66,6 @@ def print_results(compatability):
     print "You both are most compatible as " + compatability
 
 def main():
-    user_promt = raw_input("Your name please? :")
-    match_promt = raw_input("Your crush's name? :")
     name = get_name(user_promt)
     match_name = get_name(match_promt)
     player_list = get_list(name)
