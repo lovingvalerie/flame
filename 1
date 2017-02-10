@@ -26,13 +26,21 @@ def get_list(str):
    return some_list
 
 def get_non_duplicate_list(player_list, match_list):
-    non_duplicates = []
+    """
+    removes common chr between two list
+    conccantonates them and returns a list of non duplicate chr
+    """
+    match_listcp = match_list[:]
     for chr in player_list:
-        if not chr in match_list:
-            non_duplicates.append(chr)
-    for chr in match_list:
-        if not chr in player_list:
-            non_duplicates.append(chr)
+        if chr in match_list:
+            match_list.remove(chr)
+            #print match_list
+    for chr in match_listcp:
+        if chr in player_list:
+            player_list.remove(chr)
+            #print player_list
+    non_duplicates = player_list + match_list
+    #print non_duplicates
     return non_duplicates
 
 def total_remaining_chr(non_duplicates):

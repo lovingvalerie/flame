@@ -1,22 +1,20 @@
 #write a Flame program!
 #take in two names to 'predict' romantic compatability
 
-from prompt import user_prompt
-from prompt import match_prompt
-
-def get_name(prompt):
+from prompt import user_promt
+from prompt import match_promt
+def get_name(promt):
     """
     Prompts user for valid name as a string
     returns the string after checking it is valid
     """
     while True:
-        name = raw_input(prompt)
+        name = promt
         name = name.lower().strip(' ')
         if not name.isalpha():
             print "Invalid name, please try again."
         else:
             return name
-    return name
 
 def get_list(str):
    """
@@ -26,13 +24,21 @@ def get_list(str):
    return some_list
 
 def get_non_duplicate_list(player_list, match_list):
-    non_duplicates = []
+    """
+    removes common chr between two list
+    conccantonates them and returns a list of non duplicate chr
+    """
+    match_listcp = match_list[:]
     for chr in player_list:
-        if not chr in match_list:
-            non_duplicates.append(chr)
-    for chr in match_list:
-        if not chr in player_list:
-            non_duplicates.append(chr)
+        if chr in match_list:
+            match_list.remove(chr)
+            #print match_list
+    for chr in match_listcp:
+        if chr in player_list:
+            player_list.remove(chr)
+            #print player_list
+    non_duplicates = player_list + match_list
+    #print non_duplicates
     return non_duplicates
 
 def total_remaining_chr(non_duplicates):
@@ -59,9 +65,11 @@ def print_results(compatability):
     print "You both are most compatible as " + compatability
 
 def main():
-    user_name = get_name(user_prompt)
-    match_name = get_name(match_prompt)
-    player_list = get_list(user_name)
+    #user_promt = raw_input("Your name please? :")
+    #match_promt = raw_input("Your crush's name? :")
+    name = get_name(user_promt)
+    match_name = get_name(match_promt)
+    player_list = get_list(name)
     match_list = get_list(match_name)
     no_duplicates = get_non_duplicate_list(player_list, match_list)
     total_chr = total_remaining_chr(no_duplicates)
