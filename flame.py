@@ -11,7 +11,8 @@ def get_name(prompt):
     """
     while True:
         name = raw_input(prompt)
-        name = name.lower().strip(' ')
+        name = name.lower().strip(' ').replace(" ", "")
+        print name
         if not name.isalpha():
             print "Invalid name, please try again."
         else:
@@ -58,15 +59,20 @@ def print_results(compatability):
     """
     print "You both are most compatible as " + compatability
 
-def main():
-    user_name = get_name(user_prompt)
-    match_name = get_name(match_prompt)
+def play_the_game(user_name, match_name):
     player_list = get_list(user_name)
     match_list = get_list(match_name)
-    no_duplicates = get_non_duplicate_list(player_list, match_list)
-    total_chr = total_remaining_chr(no_duplicates)
-    compatability = get_compatability(total_chr)
-    print_results(compatability)
+    print_results(get_compatability(total_remaining_chr(get_non_duplicate_list(player_list, match_list))))
 
+def play_game(input=False):
+    if input:
+        play_the_game(get_name(user_prompt), get_name(match_prompt))
+    else:
+        # play the game some other way like on the web
+        pass
+
+
+def main():
+    play_the_game(get_name(user_prompt), get_name(match_prompt))
 main()
 

@@ -11,7 +11,8 @@ def get_name(prompt):
     """
     while True:
         name = raw_input(prompt)
-        name = name.lower().strip(' ')
+        name = name.lower().strip(' ').replace(" ", "")
+        print name
         if not name.isalpha():
             print "Invalid name, please try again."
         else:
